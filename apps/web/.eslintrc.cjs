@@ -8,10 +8,10 @@ module.exports = {
         'eslint:recommended',
         '@vue/eslint-config-typescript',
         '@vue/eslint-config-prettier/skip-formatting',
-        {
-            // '@vue/multi-word-component-names': 'off'
-        },
     ],
+    rules: {
+        '@vue/multi-word-component-names': 'off'
+    },
     parserOptions: {
         ecmaVersion: 'latest',
     },
