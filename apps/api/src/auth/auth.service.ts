@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
 import { compareHash } from '../helpers/hash';
 import { JwtService } from '@nestjs/jwt';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
@@ -11,15 +11,15 @@ export class AuthService {
 	) {}
 
 	async attempt(login: string, password: string) {
-		const user = await this.usersService.findByLogin(login);
+		const user = await this.usersService.getUserAuthorizationData(login);
 
 		if (!user) {
 			return false;
 		}
 
-		const x = await compareHash(password, user.password);
+		const isPasswordValid = await compareHash(password, user.password);
 
-		if (!x) {
+		if (!isPasswordValid) {
 			return false;
 		}
 
@@ -27,11 +27,9 @@ export class AuthService {
 	}
 
 	async generateAccessToken(id: number, login: string) {
-		return {
-			accessToken: await this.jwtService.signAsync({
-				sub: id,
-				login,
-			}),
-		};
+		return await this.jwtService.signAsync({
+			sub: id,
+			login,
+		});
 	}
 }

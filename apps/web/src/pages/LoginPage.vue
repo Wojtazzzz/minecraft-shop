@@ -1,23 +1,39 @@
 <script setup lang="ts">
 import Button from '@/components/inc/Button.vue';
 import Input from '@/components/inc/Input.vue';
-import { useForm } from 'vee-validate';
+import { useForm, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import Container from '@/components/inc/Container.vue';
+import axios from 'axios';
 
-const schema = yup.object({
+const validationSchema = yup.object({
     login: yup.string().required(),
     password: yup.string().required(),
 });
 
 const { defineComponentBinds, handleSubmit } = useForm({
-    validationSchema: schema,
+    validationSchema,
 });
 
 const login = defineComponentBinds('login');
 const password = defineComponentBinds('password');
 
-const submit = handleSubmit((values) => console.log(values));
+const submit = handleSubmit(async (values) => {
+    await axios.post(
+        'http://localhost:8000/auth/login',
+        {
+            login: values.login,
+            password: values.password,
+        },
+        {
+            withCredentials: true,
+        },
+    );
+
+    await axios.get('http://localhost:8000/auth/me', {
+        withCredentials: true,
+    });
+});
 </script>
 
 <template>
@@ -29,7 +45,7 @@ const submit = handleSubmit((values) => console.log(values));
                         <h2 class="text-xl font-medium text-gray-600">Login</h2>
                     </div>
 
-                    <form novalidate @submit="submit" class="flex flex-col gap-y-4 mt-5">
+                    <form novalidate @submit.prevent="submit" class="flex flex-col gap-y-4 mt-5">
                         <div>
                             <label class="space-y-1">
                                 <small class="text-gray-600 font-medium">NICKNAME</small>
@@ -38,7 +54,9 @@ const submit = handleSubmit((values) => console.log(values));
                                     name="login"
                                     v-bind="login"
                                     placeholder="CrazyJohny123"
+                                    autocomplete="username"
                                 />
+                                <ErrorMessage name="login" />
                             </label>
                         </div>
 
@@ -50,7 +68,9 @@ const submit = handleSubmit((values) => console.log(values));
                                     name="password"
                                     v-bind="password"
                                     placeholder="********"
+                                    autocomplete="current-password"
                                 />
+                                <ErrorMessage name="password" />
                             </label>
                         </div>
 
