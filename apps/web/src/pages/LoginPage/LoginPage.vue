@@ -1,31 +1,11 @@
 <script setup lang="ts">
 import Button from '@/components/inc/Button.vue';
 import Input from '@/components/inc/Input.vue';
-import { useForm, ErrorMessage } from 'vee-validate';
-import * as yup from 'yup';
+import { ErrorMessage } from 'vee-validate';
 import Container from '@/components/inc/Container.vue';
-import { axios } from '@/utils/axios';
+import { useLogin } from '@/pages/LoginPage/useLogin';
 
-const validationSchema = yup.object({
-    login: yup.string().required(),
-    password: yup.string().required(),
-});
-
-const { defineComponentBinds, handleSubmit } = useForm({
-    validationSchema,
-});
-
-const login = defineComponentBinds('login');
-const password = defineComponentBinds('password');
-
-const submit = handleSubmit(async (values) => {
-    await axios.post('/auth/login', {
-        login: values.login,
-        password: values.password,
-    });
-
-    await axios.get('/auth/me');
-});
+const { login, password, submit } = useLogin();
 </script>
 
 <template>
