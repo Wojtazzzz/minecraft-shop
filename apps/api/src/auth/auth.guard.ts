@@ -17,7 +17,9 @@ export class AuthGuard implements CanActivate {
 		const token = request.cookies['access_token'];
 
 		if (!token) {
-			throw new UnauthorizedException();
+			throw new UnauthorizedException({
+				error: 'Aby korzystać z tej części serwisu musisz się zalogować',
+			});
 		}
 
 		try {
@@ -27,7 +29,9 @@ export class AuthGuard implements CanActivate {
 
 			request['user'] = await this.usersService.findUserById(data.sub);
 		} catch {
-			throw new UnauthorizedException();
+			throw new UnauthorizedException({
+				error: 'Aby korzystać z tej części serwisu musisz się zalogować',
+			});
 		}
 
 		return true;

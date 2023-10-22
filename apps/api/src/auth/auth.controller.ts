@@ -32,7 +32,9 @@ export class AuthController {
 		const user = await this.authService.attempt(body.login, body.password);
 
 		if (!user) {
-			throw new UnauthorizedException();
+			throw new UnauthorizedException({
+				error: 'Podano nieprawidłowe dane logowania.',
+			});
 		}
 
 		const accessToken = await this.authService.generateAccessToken(
@@ -45,9 +47,7 @@ export class AuthController {
 			httpOnly: true,
 		});
 
-		return {
-			message: 'success',
-		};
+		return;
 	}
 
 	@UseGuards(AuthGuard)
