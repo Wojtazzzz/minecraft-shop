@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Button from '@/components/inc/Button.vue';
 import Input from '@/components/inc/Input.vue';
-import { ErrorMessage } from 'vee-validate';
 import Container from '@/components/inc/Container.vue';
 import { useLogin } from '@/pages/LoginPage/useLogin';
+import ValidationErrorMessage from '@/components/inc/ValidationErrorMessage.vue';
+import ApiErrorMessage from '@/components/inc/ApiErrorMessage.vue';
+import ApiSuccessMessage from '@/components/inc/ApiSuccessMessage.vue';
 
-const { login, password, submit } = useLogin();
+const { login, password, submit, isSuccess, isError, isPending, error } = useLogin();
 </script>
 
 <template>
@@ -18,6 +20,16 @@ const { login, password, submit } = useLogin();
                     <div class="w-full">
                         <div class="w-full border-b-[1px] border-gray-100 pb-5">
                             <h2 class="text-xl font-medium text-gray-600">Login</h2>
+                        </div>
+
+                        <div v-if="isError" class="w-full mt-4">
+                            <ApiErrorMessage :error="error" />
+                        </div>
+
+                        <div v-else-if="isSuccess" class="w-full mt-4">
+                            <ApiSuccessMessage
+                                message="Podano prawidłowe dane logowania. Za chwilę powinno nastąpić przekierowanie."
+                            />
                         </div>
 
                         <form
@@ -35,8 +47,11 @@ const { login, password, submit } = useLogin();
                                         placeholder="CrazyJohny123"
                                         autocomplete="username"
                                     />
-                                    <ErrorMessage name="login" />
                                 </label>
+
+                                <div class="mt-2">
+                                    <ValidationErrorMessage name="login" />
+                                </div>
                             </div>
 
                             <div>
@@ -49,17 +64,20 @@ const { login, password, submit } = useLogin();
                                         placeholder="********"
                                         autocomplete="current-password"
                                     />
-                                    <ErrorMessage name="password" />
                                 </label>
+
+                                <div class="mt-2">
+                                    <ValidationErrorMessage name="password" />
+                                </div>
                             </div>
 
                             <div class="mt-6">
-                                <Button type="submit">LOGIN</Button>
+                                <Button type="submit" :is-loading="isPending">LOGIN</Button>
                             </div>
                         </form>
                     </div>
 
-                    <div class="mt-8 text-gray-600">
+                    <div class="mt-6 text-center text-gray-600">
                         <span>Don't have an account? </span>
                         <RouterLink :to="{ name: 'login' }" class="underline"
                             >Register now</RouterLink

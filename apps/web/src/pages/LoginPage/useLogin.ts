@@ -20,7 +20,7 @@ export const useLogin = () => {
         validationSchema: schema,
     });
 
-    const { mutate } = useMutation({
+    const { mutate, isError, isSuccess, isPending, error } = useMutation({
         mutationFn,
         onSuccess: async () => {
             await router.push({ name: 'home' });
@@ -36,5 +36,9 @@ export const useLogin = () => {
         login,
         password,
         submit,
+        isError,
+        isSuccess,
+        isPending,
+        error,
     };
 };
