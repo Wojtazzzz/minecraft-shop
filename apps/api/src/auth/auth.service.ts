@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { compareHash } from '../helpers/hash';
+import { compareHash } from '../helpers/functions';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 

@@ -1,9 +1,9 @@
 import { compare, hash } from 'bcrypt';
 
-const saltRounds = 10;
+const hashSaltRounds = 10;
 
 export const createHash = async (text: string) => {
-	return await hash(text, saltRounds);
+	return await hash(text, hashSaltRounds);
 };
 
 export const compareHash = async (text: string, hash: string) => {
