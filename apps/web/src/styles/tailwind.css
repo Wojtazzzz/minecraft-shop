@@ -4,11 +4,11 @@
 
 @layer components {
     .input-outline {
-        @apply focus-visible:outline-accent focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-offset-4
+        @apply focus-visible:outline-accent focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-offset-[3px]
     }
 
     .button-outline {
-        @apply focus-visible:outline-accent focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-offset-4
+        @apply focus-visible:outline-accent focus-visible:outline-2 focus-visible:outline-dashed focus-visible:outline-offset-[3px]
     }
 
     .a-outline {
