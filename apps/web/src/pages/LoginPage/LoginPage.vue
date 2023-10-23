@@ -5,8 +5,12 @@ import Container from '@/components/inc/Container.vue';
 import { useLogin } from '@/pages/LoginPage/useLogin';
 import ApiErrorMessage from '@/components/inc/ApiErrorMessage.vue';
 import ApiSuccessMessage from '@/components/inc/ApiSuccessMessage.vue';
+import { useLoginForm } from '@/pages/LoginPage/useLoginForm';
 
-const { login, password, submit, isSuccess, isError, isPending, error, errors } = useLogin();
+const { login, password, submit, errors } = useLoginForm();
+const { isSuccess, isError, isPending, error, mutate } = useLogin();
+
+const handleSubmitForm = submit(mutate);
 </script>
 
 <template>
@@ -34,7 +38,7 @@ const { login, password, submit, isSuccess, isError, isPending, error, errors } 
 
                         <form
                             novalidate
-                            @submit.prevent="submit"
+                            @submit.prevent="handleSubmitForm"
                             class="flex flex-col gap-y-4 mt-5"
                         >
                             <span class="text-sm text-red-500 font-medium">* mandatory fields</span>
@@ -74,7 +78,7 @@ const { login, password, submit, isSuccess, isError, isPending, error, errors } 
                     <div class="mt-5 text-center text-gray-600">
                         <span>Don't have an account? </span>
                         <RouterLink
-                            :to="{ name: 'login' }"
+                            to="/"
                             class="underline hover:text-black transition-colors a-outline"
                             >Register now</RouterLink
                         >
