@@ -16,7 +16,7 @@ const mutationFn = async (payload: LoginPayload) => {
 };
 
 export const useLogin = () => {
-    const { defineComponentBinds, handleSubmit } = useForm<LoginPayload>({
+    const { defineComponentBinds, handleSubmit, errors } = useForm<LoginPayload>({
         validationSchema: schema,
     });
 
@@ -40,5 +40,6 @@ export const useLogin = () => {
         isSuccess,
         isPending,
         error,
+        errors,
     };
 };
