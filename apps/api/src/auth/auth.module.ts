@@ -13,7 +13,7 @@ import { JWT_SECRET } from '../helpers/env';
 		JwtModule.register({
 			global: true,
 			secret: JWT_SECRET,
-			signOptions: { expiresIn: '60s' },
+			signOptions: { expiresIn: '900s' },
 		}),
 	],
 })

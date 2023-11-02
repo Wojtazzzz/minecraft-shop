@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
 		if (!token) {
 			throw new UnauthorizedException({
-				error: 'Aby korzystać z tej części serwisu musisz się zalogować',
+				error: 'Please login to perform this action',
 			});
 		}
 
@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
 			request['user'] = await this.usersService.findUserById(data.sub);
 		} catch {
 			throw new UnauthorizedException({
-				error: 'Aby korzystać z tej części serwisu musisz się zalogować',
+				error: 'Please login to perform this action',
 			});
 		}
 
