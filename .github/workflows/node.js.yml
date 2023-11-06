@@ -27,5 +27,5 @@ jobs:
                   node-version: ${{ matrix.node-version }}
                   cache: "pnpm"
             - run: cd ./apps/web && pnpm install
-            - run: pnpm run build
+            - run: cd ./apps/web && pnpm run build
         #- run: pnpm run test
