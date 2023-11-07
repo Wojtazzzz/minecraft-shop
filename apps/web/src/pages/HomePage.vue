@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import '../styles/tailwind.css';
-import Nav from '../components/nav/Nav.vue';
+import MainLayout from '../layouts/MainLayout.vue';
 </script>
 
 <template>
-    <main>
-        <Nav />
-    </main>
+    <MainLayout>
+        <main></main>
+    </MainLayout>
 </template>
