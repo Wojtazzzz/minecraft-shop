@@ -1,4 +1,4 @@
-import { axios } from '@/utils/axios';
+import { wretch } from '@/utils/wretch';
 import { useMutation } from '@tanstack/vue-query';
 import router from '@/router';
 
@@ -8,7 +8,7 @@ type LoginPayload = {
 };
 
 const mutationFn = async (payload: LoginPayload) => {
-    await axios.post('/auth/login', payload);
+    await wretch.url('/auth/login').post(payload).res();
 };
 
 export const useLogin = () => {
