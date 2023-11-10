@@ -5,8 +5,10 @@ import Nav from '../components/nav/Nav.vue';
     <div>
         <Nav />
 
-        <main>
-            <slot></slot>
-        </main>
+        <div class="mt-[76px]">
+            <main>
+                <slot></slot>
+            </main>
+        </div>
     </div>
 </template>
