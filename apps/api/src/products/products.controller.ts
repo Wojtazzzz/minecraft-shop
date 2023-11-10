@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
 import { ProductsService } from './products.service';
+import { NotFoundError } from 'rxjs';
 
 @Controller('products')
 export class ProductsController {
@@ -7,8 +8,17 @@ export class ProductsController {
 
 	@Get('/')
 	async index() {
-		const products = this.productsService.getAllProducts();
+		return await this.productsService.getAllProducts();
+	}
 
-		return products;
+	@Get('/:id')
+	async show(@Param('id') id: string) {
+		const product = await this.productsService.getProduct(parseInt(id));
+
+		if (!product) {
+			throw new NotFoundException();
+		}
+
+		return product;
 	}
 }
