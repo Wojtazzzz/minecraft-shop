@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Button from '@/components/inc/Button.vue';
 import Input from '@/components/inc/FormInput.vue';
-import { useLogin } from '@/pages/LoginPage/useLogin';
+import { useLogin } from '@/pages/loginPage/useLogin';
 import ApiErrorMessage from '@/components/inc/ApiErrorMessage.vue';
 import ApiSuccessMessage from '@/components/inc/ApiSuccessMessage.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
-import { useLoginForm } from '@/pages/LoginPage/useLoginForm';
+import { useLoginForm } from '@/pages/loginPage/useLoginForm';
 
 const { login, password, submit, errors } = useLoginForm();
 const { isSuccess, isError, isPending, error, mutate } = useLogin();
