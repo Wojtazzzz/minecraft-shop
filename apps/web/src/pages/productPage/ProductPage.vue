@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import ButtonAsLink from '@/components/inc/ButtonAsLink.vue';
 
 const route = useRoute();
-const { isSuccess, isPending, isError, product } = useGetProduct(route.params.id);
+const { isSuccess, isPending, isError, product } = useGetProduct(Number(route.params.id));
 </script>
 
 <template>
