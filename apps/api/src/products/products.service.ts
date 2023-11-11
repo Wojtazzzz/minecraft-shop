@@ -18,4 +18,20 @@ export class ProductsService {
 			},
 		});
 	}
+
+	async getProduct(productId: number) {
+		return this.prisma.product.findFirst({
+			where: {
+				active: true,
+				id: productId,
+			},
+			select: {
+				id: true,
+				name: true,
+				description: true,
+				image: true,
+				price: true,
+			},
+		});
+	}
 }
