@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useGetProduct } from './useGetProduct';
 import { useRoute } from 'vue-router';
+import ButtonAsLink from '@/components/inc/ButtonAsLink.vue';
 
 const route = useRoute();
 const { isSuccess, isPending, isError, product } = useGetProduct(route.params.id);
@@ -21,6 +22,8 @@ const { isSuccess, isPending, isError, product } = useGetProduct(route.params.id
                 </div>
 
                 <div>Price: {{ product.price.toFixed(2) }}</div>
+
+                <ButtonAsLink href="/">Kupuję</ButtonAsLink>
             </article>
         </section>
     </MainLayout>
