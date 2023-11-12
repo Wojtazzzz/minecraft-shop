@@ -29,6 +29,12 @@ export class ProductsController {
 
 	@Post('/:id/buy')
 	async buy(@Param('id') id: string) {
-		return this.productsService.createProductCheckoutUrl(parseInt(id));
+		const checkoutUrl = await this.productsService.createProductCheckoutUrl(
+			parseInt(id),
+		);
+
+		return {
+			checkoutUrl,
+		};
 	}
 }
