@@ -5,7 +5,7 @@ export function useBuyProduct(productId: number) {
         const url = await wretch
             .url(`/products/${productId}/buy`)
             .post()
-            .json((json) => json.url);
+            .json((json) => json.checkoutUrl);
 
         window.location.href = url;
     }
