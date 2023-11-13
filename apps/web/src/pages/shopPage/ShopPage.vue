@@ -16,7 +16,7 @@ const { isSuccess, isError, isPending, products } = useGetProducts();
         <Container>
             <section class="flex flex-col gap-6">
                 <header class="w-full border-b pb-3">
-                    <h2 class="font-medium pl-2 text-3xl">Products list</h2>
+                    <h2 class="font-medium text-3xl">Products list</h2>
                 </header>
 
                 <div class="w-full flex justify-center" aria-live="polite" :aria-busy="isPending">

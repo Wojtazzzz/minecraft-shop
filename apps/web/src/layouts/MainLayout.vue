@@ -5,7 +5,7 @@ import Nav from '../components/nav/Nav.vue';
     <div>
         <Nav />
 
-        <div class="mt-[76px]">
+        <div class="mt-32">
             <main>
                 <slot></slot>
             </main>

@@ -5,14 +5,12 @@ import Nav from '../components/nav/Nav.vue';
     <div>
         <Nav />
 
-        <div class="w-screen h-screen flex flex-col justify-center items-center">
-            <Container>
-                <div class="flex justify-center">
-                    <main>
-                        <slot></slot>
-                    </main>
-                </div>
-            </Container>
+        <div class="w-screen h-screen flex flex-col items-center mt-32">
+            <div class="flex justify-center">
+                <main>
+                    <slot></slot>
+                </main>
+            </div>
         </div>
     </div>
 </template>
