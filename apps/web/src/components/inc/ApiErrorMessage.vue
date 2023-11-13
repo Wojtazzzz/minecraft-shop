@@ -2,12 +2,12 @@
 import { getApiErrorMessage } from '@/utils/getApiErrorMessage';
 
 defineProps<{
-    error: unknown;
+    error: unknown | string;
 }>();
 </script>
 
 <template>
-    <div class="px-5 py-3 text-sm font-medium rounded bg-red-100 text-red-500">
-        {{ getApiErrorMessage(error) }}
+    <div class="w-full px-5 py-3 text-sm font-medium rounded bg-red-100 text-red-500">
+        {{ typeof error === 'string' ? error : getApiErrorMessage(error) }}
     </div>
 </template>
