@@ -5,7 +5,9 @@ defineProps<{
 </script>
 
 <template>
-    <div class="px-5 py-3 text-sm font-medium rounded bg-green-100 text-green-500 text-left">
+    <div
+        class="w-full px-5 py-3 text-sm font-medium rounded bg-yellow-100 text-yellow-700 text-left"
+    >
         {{ message }}
     </div>
 </template>
