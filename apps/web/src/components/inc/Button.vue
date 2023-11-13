@@ -16,7 +16,7 @@ withDefaults(
 
 <template>
     <button
-        class="w-full p-4 text-gray-100 hover:bg-accent/80 active:bg-accent outline-none transition-colors uppercase bg-accent rounded shadow-sm font-medium tracking-wide button-outline"
+        class="w-full text-center p-4 text-gray-100 hover:bg-accent/80 active:bg-accent outline-none transition-colors uppercase bg-accent rounded shadow-sm font-medium tracking-wide button-outline"
         :class="{
             'bg-accent/80 cursor-wait': isLoading,
         }"
@@ -24,7 +24,7 @@ withDefaults(
         @click="onClick"
     >
         <template v-if="isLoading">
-            <Spinner />
+            <Spinner size="sm" color="grey" />
         </template>
 
         <template v-else>
