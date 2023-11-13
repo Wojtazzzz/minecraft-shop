@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="w-full px-5 py-3 text-sm font-medium rounded bg-red-100 text-red-500">
+    <div class="w-full px-5 py-3 text-sm font-medium rounded bg-red-100 text-red-500 text-left">
         {{ typeof error === 'string' ? error : getApiErrorMessage(error) }}
     </div>
 </template>
