@@ -8,7 +8,7 @@
             alt=""
         />
 
-        <div class="relative bg-opacity-75 bg-green-700/50">
+        <section class="relative bg-opacity-75 bg-green-700/50">
             <svg
                 class="hidden sm:block absolute inset-x-0 -bottom-0 sm:w-auto text-white"
                 viewBox="0 0 1160 163"
@@ -25,7 +25,7 @@
                 class="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
             >
                 <div class="flex flex-col items-center justify-between xl:flex-row">
-                    <div class="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
+                    <header class="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                         <h2
                             class="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none"
                         >
@@ -52,12 +52,12 @@
                                 />
                             </svg>
                         </a>
-                    </div>
+                    </header>
                     <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
                         <div class="bg-white rounded h-[400px]"></div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </template>
