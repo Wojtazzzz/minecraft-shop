@@ -19,18 +19,18 @@ const { isSuccess, isError, isPending, products } = useGetProducts();
                     <h2 class="font-medium pl-2 text-3xl">Products list</h2>
                 </header>
 
-                <div class="w-full flex justify-center">
+                <div class="w-full flex justify-center" aria-live="polite" :aria-busy="isPending">
                     <div v-if="isPending" class="mt-10">
                         <Spinner size="lg" color="accent" />
                     </div>
 
-                    <div v-else-if="isError" class="w-full">
+                    <div v-else-if="isError" class="w-full" role="alert">
                         <ApiErrorMessage
                             error="Coś poszło nie tak, proszę spróbować ponownie później"
                         />
                     </div>
 
-                    <div v-else-if="!products" class="w-full">
+                    <div v-else-if="!products" class="w-full" role="alert">
                         <ApiWarningMessage message="Brak produktów do wyświetlenia" />
                     </div>
 
