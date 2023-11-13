@@ -28,13 +28,15 @@
 		"@nestjs/core": "^10.0.0",
 		"@nestjs/platform-express": "^10.0.0",
 		"@prisma/client": "5.4.2",
+		"@stripe/stripe-js": "^2.1.11",
 		"bcrypt": "^5.1.1",
 		"class-transformer": "^0.5.1",
 		"class-validator": "^0.14.0",
 		"cookie-parser": "^1.4.6",
 		"helmet": "^7.1.0",
 		"reflect-metadata": "^0.1.13",
-		"rxjs": "^7.8.1"
+		"rxjs": "^7.8.1",
+		"stripe": "^14.4.0"
 	},
 	"devDependencies": {
 		"@nestjs/cli": "^10.0.0",

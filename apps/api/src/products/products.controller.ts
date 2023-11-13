@@ -1,6 +1,11 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+import {
+	Controller,
+	Get,
+	NotFoundException,
+	Param,
+	Post,
+} from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { NotFoundError } from 'rxjs';
 
 @Controller('products')
 export class ProductsController {
@@ -20,5 +25,16 @@ export class ProductsController {
 		}
 
 		return product;
+	}
+
+	@Post('/:id/buy')
+	async buy(@Param('id') id: string) {
+		const checkoutUrl = await this.productsService.createProductCheckoutUrl(
+			parseInt(id),
+		);
+
+		return {
+			checkoutUrl,
+		};
 	}
 }
