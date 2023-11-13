@@ -21,6 +21,7 @@ withDefaults(
             'bg-accent/80 cursor-wait': isLoading,
         }"
         :type="type"
+        :disabled="isLoading"
         @click="onClick"
     >
         <template v-if="isLoading">
