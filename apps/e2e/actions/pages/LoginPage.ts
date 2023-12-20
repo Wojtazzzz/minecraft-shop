@@ -28,20 +28,14 @@ export class LoginPage {
 	}
 
 	getInvalidCredentialsError() {
-		return this.page
-			.getByRole('alert')
-			.filter({ hasText: 'Provided incorrect credentials' });
+		return this.page.getByRole('alert').filter({ hasText: 'Provided incorrect credentials' });
 	}
 
 	getLoginIsRequiredError() {
-		return this.page
-			.getByRole('alert')
-			.filter({ hasText: 'login is a required field' });
+		return this.page.getByRole('alert').filter({ hasText: 'login is a required field' });
 	}
 
 	getPasswordIsRequiredError() {
-		return this.page
-			.getByRole('alert')
-			.filter({ hasText: 'password is a required field' });
+		return this.page.getByRole('alert').filter({ hasText: 'password is a required field' });
 	}
 }
