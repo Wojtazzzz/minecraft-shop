@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Nav from '../components/nav/Nav.vue';
+import Hero from '../components/hero/Hero.vue';
 import Footer from '@/components/footer/Footer.vue';
 </script>
 
@@ -7,10 +8,14 @@ import Footer from '@/components/footer/Footer.vue';
     <div>
         <Nav />
 
-        <div class="mt-28">
-            <main>
-                <slot></slot>
-            </main>
+        <div class="mt-16">
+            <Hero />
+
+            <div class="mt-12">
+                <main>
+                    <slot></slot>
+                </main>
+            </div>
         </div>
 
         <div class="mt-12">

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import '../styles/tailwind.css';
-import MainLayout from '../layouts/MainLayout.vue';
+import LandingPageLayout from '../layouts/LandingPageLayout.vue';
 </script>
 
 <template>
-    <MainLayout>
+    <LandingPageLayout>
         <main></main>
-    </MainLayout>
+    </LandingPageLayout>
 </template>
