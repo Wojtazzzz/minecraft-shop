@@ -2,6 +2,7 @@
 import DesktopNav from '@/components/nav/DesktopNav.vue';
 import MobileNav from '@/components/nav/MobileNav.vue';
 import Container from '@/components/inc/Container.vue';
+import { APP_NAME } from '@/utils/env';
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import Container from '@/components/inc/Container.vue';
                 <nav class="relative flex items-center justify-between">
                     <RouterLink to="/" class="inline-flex items-center">
                         <h1 class="text-xl font-bold tracking-wide text-gray-800 uppercase">
-                            Minecraft Shop
+                            {{ APP_NAME }}
                         </h1>
                     </RouterLink>
 

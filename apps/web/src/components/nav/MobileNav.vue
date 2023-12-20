@@ -3,6 +3,7 @@ import { useMobileNav } from '@/components/nav/useMobileNav';
 import { buttons, links } from '@/components/nav/navLinks';
 import Times from '@/components/icons/Times.vue';
 import Bars from '@/components/icons/Bars.vue';
+import { APP_NAME } from '@/utils/env';
 
 const { isNavOpen, open, close } = useMobileNav();
 </script>
@@ -26,7 +27,7 @@ const { isNavOpen, open, close } = useMobileNav();
                             <span
                                 class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
                             >
-                                Minecraft Shop
+                                {{ APP_NAME }}
                             </span>
                         </RouterLink>
                     </div>
