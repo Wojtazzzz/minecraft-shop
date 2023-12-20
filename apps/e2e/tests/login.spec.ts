@@ -1,20 +1,48 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from '@playwright/test';
+import { DesktopNav } from '../actions/elements/DesktopNav';
+import { LoginPage } from '../actions/pages/LoginPage';
 
-test("has title", async ({ page }) => {
-	await page.goto("https://playwright.dev/");
+test('try to login with incorrect credentials', async ({ page }) => {
+	const nav = new DesktopNav(page);
+	const loginPage = new LoginPage(page);
 
-	// Expect a title "to contain" a substring.
-	await expect(page).toHaveTitle(/Playwright/);
+	await page.goto('/');
+
+	await nav.goToLoginPage();
+
+	await loginPage.fillLoginInput('invalid-login');
+	await loginPage.fillPasswordInput('invalid-password');
+	await loginPage.submitForm();
+
+	const invalidCredentialsError = loginPage.getInvalidCredentialsError();
+
+	await expect(invalidCredentialsError).toBeVisible();
 });
 
-test("get started link", async ({ page }) => {
-	await page.goto("https://playwright.dev/");
+test('successful login', async ({ page }) => {
+	const nav = new DesktopNav(page);
+	const loginPage = new LoginPage(page);
 
-	// Click the get started link.
-	await page.getByRole("link", { name: "Get started" }).click();
+	await page.goto('/');
 
-	// Expects page to have a heading with the name of Installation.
-	await expect(
-		page.getByRole("heading", { name: "Installation" })
-	).toBeVisible();
+	await nav.goToLoginPage();
+
+	await loginPage.fillLoginInput('admin');
+	await loginPage.fillPasswordInput('admin');
+	await loginPage.submitForm();
+
+	await expect(page).toHaveURL('/');
+});
+
+test('client side validation', async ({ page }) => {
+	const loginPage = new LoginPage(page);
+
+	await loginPage.go();
+	await loginPage.submitForm();
+
+	const emptyLoginError = loginPage.getLoginIsRequiredError();
+	const emptyPasswordError = loginPage.getPasswordIsRequiredError();
+
+	await expect(emptyLoginError).toBeVisible();
+	await expect(emptyPasswordError).toBeVisible();
 });

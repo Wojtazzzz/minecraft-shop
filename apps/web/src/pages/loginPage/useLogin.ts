@@ -14,7 +14,7 @@ const mutationFn = async (payload: LoginPayload) => {
         .unauthorized(() => {
             throw new Error('Provided incorrect credentials');
         })
-        .json();
+        .res();
 };
 
 export const useLogin = () => {
