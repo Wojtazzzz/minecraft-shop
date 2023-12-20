@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import BlockRender from './render/Render.vue';
+</script>
 
 <template>
     <div class="relative">
@@ -53,8 +55,13 @@
                             </svg>
                         </a>
                     </header>
+
                     <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
-                        <div class="bg-white rounded h-[400px]"></div>
+                        <div class="h-[250px] md:h-[400px]">
+                            <Suspense>
+                                <BlockRender />
+                            </Suspense>
+                        </div>
                     </div>
                 </div>
             </div>
