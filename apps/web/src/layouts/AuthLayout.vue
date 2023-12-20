@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import Nav from '../components/nav/Nav.vue';
 </script>
+
 <template>
     <div>
         <Nav />
 
-        <div class="w-screen h-screen flex flex-col items-center mt-32">
+        <div class="max-w-screen flex flex-col items-center mt-28">
             <div class="flex justify-center">
                 <main>
                     <slot></slot>
