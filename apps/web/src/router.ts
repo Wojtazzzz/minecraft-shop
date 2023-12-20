@@ -3,8 +3,9 @@ import HomePage from '@/pages/HomePage.vue';
 import LoginPage from '@/pages/loginPage/LoginPage.vue';
 import ShopPage from './pages/shopPage/ShopPage.vue';
 import ProductPage from './pages/productPage/ProductPage.vue';
+import NotFoundPage from './pages/404.vue';
 
-const router = createRouter({
+export const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
@@ -27,7 +28,10 @@ const router = createRouter({
             name: 'product',
             component: ProductPage,
         },
+        {
+            path: '/:pathMatch(.*)*',
+            name: '404',
+            component: NotFoundPage,
+        },
     ],
 });
-
-export default router;
