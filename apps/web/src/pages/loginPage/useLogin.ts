@@ -1,6 +1,6 @@
 import { wretch } from '@/utils/wretch';
 import { useMutation } from '@tanstack/vue-query';
-import router from '@/router';
+import { router } from '@/router';
 
 type LoginPayload = {
     login: string;
