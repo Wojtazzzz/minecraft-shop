@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { getApiErrorMessage } from '@/utils/getApiErrorMessage';
-
 defineProps<{
-    error: unknown | string;
+    error: undefined | string;
 }>();
 </script>
 
 <template>
     <div class="w-full px-5 py-3 text-sm font-medium rounded bg-red-100 text-red-500 text-left">
-        {{ typeof error === 'string' ? error : getApiErrorMessage(error) }}
+        {{ error ? error : 'Coś poszło nie tak, proszę spróbować ponownie później' }}
     </div>
 </template>
