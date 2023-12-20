@@ -24,7 +24,7 @@ const handleSubmitForm = submit(mutate);
                     </div>
 
                     <div role="alert" class="w-full mt-4">
-                        <ApiErrorMessage v-if="isError" :error="error" />
+                        <ApiErrorMessage v-if="isError" :error="error?.message" />
                     </div>
 
                     <div role="status" class="w-full mt-4">

@@ -8,7 +8,13 @@ type LoginPayload = {
 };
 
 const mutationFn = async (payload: LoginPayload) => {
-    await wretch.url('/auth/login').post(payload).res();
+    return await wretch
+        .url('/auth/login')
+        .post(payload)
+        .unauthorized(() => {
+            throw new Error('Provided incorrect credentials');
+        })
+        .json();
 };
 
 export const useLogin = () => {

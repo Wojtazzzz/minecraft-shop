@@ -37,7 +37,7 @@ const {
                     class="text-center w-full flex flex-col gap-y-8 items-center"
                 >
                     <div v-if="isBuyProductError" role="alert" class="w-full">
-                        <ApiErrorMessage :error="buyProductError" />
+                        <ApiErrorMessage :error="buyProductError?.message" />
                     </div>
 
                     <header class="w-full space-y-2 border-b pb-5">
