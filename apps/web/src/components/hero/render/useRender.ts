@@ -12,38 +12,18 @@ const config = {
     windowSize: false,
 };
 
-type Direction = 'UP' | 'DOWN';
-
 export async function useRender() {
     const renderRef = shallowRef<TresObject | null>(null);
     const { onLoop } = useRenderLoop();
     const { scene: model } = await useGLTF('/render/scene.gltf');
 
-    model.position.y = -0.8;
-
-    let direction: Direction = 'DOWN';
-
-    onLoop(({ delta }) => {
+    onLoop(({ delta, elapsed }) => {
         if (!renderRef.value) {
             return;
         }
 
-        const positionSpeed = delta / 6;
-        const rotationSpeed = delta / 5;
-
-        renderRef.value.rotation.y += rotationSpeed;
-
-        if (direction === 'UP') {
-            renderRef.value.position.y += positionSpeed;
-        } else {
-            renderRef.value.position.y -= positionSpeed;
-        }
-
-        if (renderRef.value.position.y > -0.4) {
-            direction = 'DOWN';
-        } else if (renderRef.value.position.y < -0.9) {
-            direction = 'UP';
-        }
+        renderRef.value.rotation.y += delta / 5;
+        renderRef.value.position.y = Math.cos(elapsed) * 0.1 - 0.8;
     });
 
     return {
