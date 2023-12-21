@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/pages/HomePage.vue';
 import LoginPage from '@/pages/loginPage/LoginPage.vue';
-import ShopPage from './pages/shopPage/ShopPage.vue';
+import ProductsPage from './pages/productsPage/ProductsPage.vue';
 import ProductPage from './pages/productPage/ProductPage.vue';
 import NotFoundPage from './pages/404.vue';
 
@@ -20,8 +20,8 @@ export const router = createRouter({
         },
         {
             path: '/shop',
-            name: 'shop',
-            component: ShopPage,
+            name: 'products',
+            component: ProductsPage,
         },
         {
             path: '/product/:id',
