@@ -4,8 +4,8 @@ import { resetDatabase } from '../../../prisma/resetDatabase';
 
 const prisma = new PrismaClient();
 
-test.afterEach(() => {
-	resetDatabase();
+test.beforeEach(async () => {
+	await resetDatabase();
 });
 
 test('return only active products', async ({ request }) => {

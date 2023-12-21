@@ -7,10 +7,6 @@ import { resetDatabase } from '../../prisma/resetDatabase';
 
 const prisma = new PrismaClient();
 
-test.afterEach(async () => {
-	await resetDatabase();
-});
-
 test.beforeEach(async () => {
 	await resetDatabase();
 });

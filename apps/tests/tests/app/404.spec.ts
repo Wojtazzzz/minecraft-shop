@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import { NotFoundPage } from '../../actions/pages/NotFoundPage';
 import { resetDatabase } from '../../prisma/resetDatabase';
 
-test.afterEach(() => {
-	resetDatabase();
+test.beforeEach(async () => {
+	await resetDatabase();
 });
 
 test('redirects to the not found page, redirects to the home page by click on the link', async ({
