@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useGetProduct } from './useGetProduct';
-import { useRoute } from 'vue-router';
 import { useBuyProduct } from './useBuyProduct';
 import Container from '@/components/inc/Container.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
@@ -8,14 +7,13 @@ import Spinner from '@/components/icons/Spinner.vue';
 import ApiErrorMessage from '@/components/inc/ApiErrorMessage.vue';
 import Button from '@/components/inc/Button.vue';
 
-const route = useRoute();
-const { isSuccess, isPending, isError, product } = useGetProduct(Number(route.params.id));
+const { isSuccess, isPending, isError, product } = useGetProduct();
 const {
     buyProduct,
     isPending: isBuyProductPending,
     isError: isBuyProductError,
     error: buyProductError,
-} = useBuyProduct(Number(route.params.id));
+} = useBuyProduct();
 </script>
 
 <template>

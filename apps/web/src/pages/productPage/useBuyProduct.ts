@@ -1,5 +1,6 @@
 import { wretch } from '@/utils/wretch';
 import { useMutation } from '@tanstack/vue-query';
+import { useRoute } from 'vue-router';
 import * as yup from 'yup';
 
 const buyProductResponseSchema = yup
@@ -8,7 +9,10 @@ const buyProductResponseSchema = yup
     })
     .required();
 
-export function useBuyProduct(productId: number) {
+export function useBuyProduct() {
+    const route = useRoute();
+    const productId = Number(route.params.id);
+
     const { mutate, isError, isPending, error } = useMutation({
         mutationFn: async function () {
             return await wretch

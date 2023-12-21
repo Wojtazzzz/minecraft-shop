@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/vue-query';
 import { wretch } from '../../utils/wretch';
 import * as yup from 'yup';
 import { getProductDetailsQueryKey } from '@/utils/queryKeys';
+import { useRoute } from 'vue-router';
 
 const productResponseSchema = yup
     .object({
@@ -13,7 +14,10 @@ const productResponseSchema = yup
     })
     .required();
 
-export function useGetProduct(productId: number) {
+export function useGetProduct() {
+    const route = useRoute();
+    const productId = Number(route.params.id);
+
     const { isPending, isSuccess, isError, data, error } = useQuery({
         queryKey: getProductDetailsQueryKey(productId),
         queryFn: async function () {

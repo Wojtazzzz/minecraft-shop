@@ -56,6 +56,7 @@ export class StripeService {
 				console.log(event.data.object);
 
 				break;
+
 			default:
 				console.log(`Unhandled event type ${event.type}`);
 				console.log(event);
