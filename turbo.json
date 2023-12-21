@@ -1,7 +1,5 @@
 {
 	"$schema": "https://turbo.build/schema.json",
-	"globalDependencies": ["**/.env.*local"],
-	"globalEnv": ["JWT_SECRET", "STRIPE_API_SECRET", "DATABASE_URL"],
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
@@ -10,6 +8,10 @@
 		},
 		"lint": {},
 		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"test": {
 			"cache": false,
 			"persistent": true
 		}

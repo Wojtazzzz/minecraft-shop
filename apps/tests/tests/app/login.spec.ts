@@ -1,6 +1,19 @@
 import { test, expect } from '@playwright/test';
-import { DesktopNav } from '../actions/elements/DesktopNav';
-import { LoginPage } from '../actions/pages/LoginPage';
+import { DesktopNav } from '../../actions/elements/DesktopNav';
+import { LoginPage } from '../../actions/pages/LoginPage';
+import { PrismaClient } from '@prisma/client';
+import { hash } from 'bcrypt';
+import { resetDatabase } from '../../prisma/resetDatabase';
+
+const prisma = new PrismaClient();
+
+test.afterEach(async () => {
+	await resetDatabase();
+});
+
+test.beforeEach(async () => {
+	await resetDatabase();
+});
 
 test('try to login with incorrect credentials', async ({ page }) => {
 	const nav = new DesktopNav(page);
@@ -20,6 +33,14 @@ test('try to login with incorrect credentials', async ({ page }) => {
 });
 
 test('successful login', async ({ page }) => {
+	await prisma.user.create({
+		data: {
+			login: 'admin',
+			email: 'admin@gmail.com',
+			password: await hash('admin', 10),
+		},
+	});
+
 	const nav = new DesktopNav(page);
 	const loginPage = new LoginPage(page);
 
