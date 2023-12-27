@@ -27,7 +27,7 @@ test('successful login', async ({ page }) => {
 
 	await nav.goToLoginPage();
 
-	await loginPage.fillLoginInput('admin');
+	await loginPage.fillLoginInput('jan_kowalski');
 	await loginPage.fillPasswordInput('admin');
 	await loginPage.submitForm();
 

@@ -11,7 +11,7 @@ export class E2eController {
 		await this.prisma.user.create({
 			data: {
 				email: 'jan.kowalski@mc_shop_fake.pl',
-				login: 'JanKowalski',
+				login: 'jan_kowalski',
 				password: await createHash('admin'),
 			},
 		});
