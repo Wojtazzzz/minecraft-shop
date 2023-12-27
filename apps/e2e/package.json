@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"e2e": "npx playwright test"
+		"test:app": "npx playwright test tests/app",
+		"test:api": "npx playwright test tests/api"
 	},
 	"keywords": [],
 	"author": "",

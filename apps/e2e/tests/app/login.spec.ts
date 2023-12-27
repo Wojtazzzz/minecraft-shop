@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { DesktopNav } from '../actions/elements/DesktopNav';
-import { LoginPage } from '../actions/pages/LoginPage';
+import { DesktopNav } from '../../actions/elements/DesktopNav';
+import { LoginPage } from '../../actions/pages/LoginPage';
 
 test('try to login with incorrect credentials', async ({ page }) => {
 	const nav = new DesktopNav(page);

@@ -38,22 +38,38 @@ export default defineConfig({
 			name: 'cleanup db',
 			testMatch: /global.teardown\.ts/,
 		},
+		{
+			name: 'login',
+			testMatch: /global.login\.ts/,
+			dependencies: ['setup'],
+		},
 
 		{
 			name: 'chromium',
+			testDir: './tests/app',
 			use: { ...devices['Desktop Chrome'] },
 			dependencies: ['setup'],
 		},
 		{
 			name: 'firefox',
+			testDir: './tests/app',
 			use: { ...devices['Desktop Firefox'] },
 			dependencies: ['setup'],
 		},
 		{
 			name: 'webkit',
-			use: { ...devices['Desktop Safari'] },
 			testDir: './tests/app',
+			use: { ...devices['Desktop Safari'] },
 			dependencies: ['setup'],
+		},
+
+		{
+			name: 'api',
+			testDir: './tests/api',
+			dependencies: ['login'],
+			use: {
+				storageState: 'loginState.json',
+			},
 		},
 
 		/* Test against mobile viewports. */
