@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { NotFoundPage } from '../../actions/pages/NotFoundPage';
-import { resetDatabase } from '../../prisma/resetDatabase';
+import { NotFoundPage } from '../actions/pages/NotFoundPage';
+import { resetDatabase } from '../prisma/resetDatabase';
 
 test.beforeEach(async () => {
 	await resetDatabase();

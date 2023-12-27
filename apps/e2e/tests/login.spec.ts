@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { DesktopNav } from '../../actions/elements/DesktopNav';
-import { LoginPage } from '../../actions/pages/LoginPage';
+import { DesktopNav } from '../actions/elements/DesktopNav';
+import { LoginPage } from '../actions/pages/LoginPage';
 import { PrismaClient } from '@prisma/client';
 import { hash } from 'bcrypt';
-import { resetDatabase } from '../../prisma/resetDatabase';
+import { resetDatabase } from '../prisma/resetDatabase';
 
 const prisma = new PrismaClient();
 
