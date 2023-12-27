@@ -4,7 +4,7 @@ import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import { StripeModule } from './stripe/stripe.module';
 import { ConfigModule } from '@nestjs/config';
-import { E2eModule } from './e2e/e2e.module';
+import { TestsModule } from './tests/tests.module';
 
 @Module({
 	imports: [
@@ -15,7 +15,7 @@ import { E2eModule } from './e2e/e2e.module';
 		UsersModule,
 		ProductsModule,
 		StripeModule,
-		E2eModule,
+		TestsModule,
 	],
 })
 export class AppModule {}

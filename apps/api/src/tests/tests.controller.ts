@@ -2,8 +2,8 @@ import { Controller, Get } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { createHash } from 'src/helpers/functions';
 
-@Controller('e2e')
-export class E2eController {
+@Controller('tests')
+export class TestsController {
 	constructor(private prisma: PrismaService) {}
 
 	@Get('/setup')

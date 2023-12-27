@@ -1,15 +1,15 @@
 import type { MiddlewareConsumer } from '@nestjs/common';
 import { Module } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
-import { E2eController } from './e2e.controller';
-import { E2eMiddleware } from './e2e.middleware';
+import { TestsController } from './tests.controller';
+import { TestsMiddleware } from './tests.middleware';
 
 @Module({
-	controllers: [E2eController],
+	controllers: [TestsController],
 	providers: [PrismaService],
 })
-export class E2eModule {
+export class TestsModule {
 	configure(consumer: MiddlewareConsumer) {
-		consumer.apply(E2eMiddleware).forRoutes('e2e');
+		consumer.apply(TestsMiddleware).forRoutes('tests');
 	}
 }
