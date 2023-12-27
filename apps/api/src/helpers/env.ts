@@ -2,7 +2,6 @@ import { ServiceUnavailableException } from '@nestjs/common';
 import { config } from 'dotenv';
 
 config({ path: `.env.${process.env.NODE_ENV}` });
-console.log(`.env.${process.env.NODE_ENV}`);
 
 export const DATABASE_URL = checkEnvVariable(
 	'DATABASE_URL',
