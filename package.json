@@ -6,7 +6,8 @@
 		"start:e2e": "turbo run start:e2e",
 		"lint": "turbo run lint",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"e2e": "turbo run e2e --filter=e2e"
+		"test:app": "turbo run test:app --filter=e2e",
+		"test:api": "turbo run test:api --filter=e2e"
 	},
 	"devDependencies": {
 		"eslint": "^8.48.0",

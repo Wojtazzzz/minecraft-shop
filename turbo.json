@@ -13,7 +13,10 @@
 			"dependsOn": ["build"],
 			"persistent": true
 		},
-		"e2e": {
+		"test:app": {
+			"persistent": true
+		},
+		"test:api": {
 			"persistent": true
 		}
 	}
