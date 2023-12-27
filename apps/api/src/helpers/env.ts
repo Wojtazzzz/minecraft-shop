@@ -21,6 +21,8 @@ export const STRIPE_SECRET = checkEnvVariable(
 	process.env.STRIPE_SECRET,
 );
 
+export const NODE_ENV = checkEnvVariable('NODE_ENV', process.env.NODE_ENV);
+
 function checkEnvVariable(name: string, variable: unknown) {
 	if (!variable) {
 		throw new ServiceUnavailableException(
