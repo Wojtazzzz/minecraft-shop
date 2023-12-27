@@ -14,7 +14,6 @@ export class UsersService {
 				id: true,
 				login: true,
 				email: true,
-				createdAt: true,
 			},
 		});
 	}

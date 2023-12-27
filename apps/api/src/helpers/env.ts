@@ -2,7 +2,6 @@ import { ServiceUnavailableException } from '@nestjs/common';
 import { config } from 'dotenv';
 
 config({ path: `.env.${process.env.NODE_ENV}` });
-console.log(`.env.${process.env.NODE_ENV}`);
 
 export const DATABASE_URL = checkEnvVariable(
 	'DATABASE_URL',
@@ -20,6 +19,8 @@ export const STRIPE_SECRET = checkEnvVariable(
 	'STRIPE_SECRET',
 	process.env.STRIPE_SECRET,
 );
+
+export const NODE_ENV = checkEnvVariable('NODE_ENV', process.env.NODE_ENV);
 
 function checkEnvVariable(name: string, variable: unknown) {
 	if (!variable) {

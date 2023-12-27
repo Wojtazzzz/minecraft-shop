@@ -6,7 +6,7 @@
         "dev": "vite --port 3000",
         "build": "run-p type-check \"build-only {@}\" --",
         "start": "vite preview",
-        "test": "NODE_ENV=test vite preview",
+        "start:e2e": "NODE_ENV=test vite preview",
         "test:unit": "vitest",
         "build-only": "vite build",
         "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",

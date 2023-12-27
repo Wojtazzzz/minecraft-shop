@@ -3,7 +3,10 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"scripts": {},
+	"scripts": {
+		"test:app": "npx playwright test tests/app",
+		"test:api": "npx playwright test tests/api"
+	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
@@ -16,9 +19,6 @@
 		"prettier": "3.1.1"
 	},
 	"dependencies": {
-		"@prisma/client": "5.4.2",
-		"@types/bcrypt": "^5.0.0",
-		"bcrypt": "^5.1.1",
 		"dotenv": "^16.3.1"
 	}
 }

@@ -1,12 +1,13 @@
 {
 	"private": true,
 	"scripts": {
-		"build": "turbo run build",
+		"build": "turbo run build --filter=!e2e",
 		"dev": "turbo run dev",
-		"start": "turbo run start",
+		"start:e2e": "turbo run start:e2e",
 		"lint": "turbo run lint",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"test": "turbo run build && turbo run test"
+		"test:app": "turbo run test:app --filter=e2e",
+		"test:api": "turbo run test:api --filter=e2e"
 	},
 	"devDependencies": {
 		"eslint": "^8.48.0",

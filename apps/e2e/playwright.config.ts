@@ -14,8 +14,7 @@ export default defineConfig({
 	/* Retry on CI only */
 	retries: process.env.CI ? 2 : 0,
 	/* Opt out of parallel tests on CI. */
-	// workers: process.env.CI ? 1 : 1,
-	workers: 1,
+	workers: process.env.CI ? 1 : 3,
 	maxFailures: 999,
 	/* Reporter to use. See https://playwright.dev/docs/test-reporters */
 	reporter: 'html',
@@ -31,26 +30,46 @@ export default defineConfig({
 	/* Configure projects for major browsers */
 	projects: [
 		{
-			name: 'chromium',
-			use: { ...devices['Desktop Chrome'] },
-			testDir: './tests/app',
+			name: 'setup',
+			testMatch: /global.setup\.ts/,
+			teardown: 'cleanup db',
+		},
+		{
+			name: 'cleanup db',
+			testMatch: /global.teardown\.ts/,
+		},
+		{
+			name: 'login',
+			testMatch: /global.login\.ts/,
+			dependencies: ['setup'],
 		},
 
 		{
-			name: 'firefox',
-			use: { ...devices['Desktop Firefox'] },
+			name: 'chromium',
 			testDir: './tests/app',
+			use: { ...devices['Desktop Chrome'] },
+			dependencies: ['setup'],
 		},
-
-		// {
-		// 	name: 'webkit',
-		// 	use: { ...devices['Desktop Safari'] },
-		// 	testDir: './tests/app',
-		// },
+		{
+			name: 'firefox',
+			testDir: './tests/app',
+			use: { ...devices['Desktop Firefox'] },
+			dependencies: ['setup'],
+		},
+		{
+			name: 'webkit',
+			testDir: './tests/app',
+			use: { ...devices['Desktop Safari'] },
+			dependencies: ['setup'],
+		},
 
 		{
 			name: 'api',
 			testDir: './tests/api',
+			dependencies: ['login'],
+			use: {
+				storageState: 'loginState.json',
+			},
 		},
 
 		/* Test against mobile viewports. */
@@ -76,7 +95,7 @@ export default defineConfig({
 
 	/* Run your local dev server before starting the tests */
 	// webServer: {
-	// 	command: 'pnpm run test',
+	// 	command: 'turbo run start:e2e',
 	// 	url: 'http://127.0.0.1:3000',
 	// 	reuseExistingServer: !process.env.CI,
 	// },

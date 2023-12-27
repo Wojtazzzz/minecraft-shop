@@ -2,8 +2,6 @@
 	"$schema": "https://turbo.build/schema.json",
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
-			"outputs": [".next/**", "!.next/cache/**"],
 			"dotEnv": [".env"]
 		},
 		"lint": {},
@@ -11,8 +9,14 @@
 			"cache": false,
 			"persistent": true
 		},
-		"test": {
-			"cache": false,
+		"start:e2e": {
+			"dependsOn": ["build"],
+			"persistent": true
+		},
+		"test:app": {
+			"persistent": true
+		},
+		"test:api": {
 			"persistent": true
 		}
 	}
