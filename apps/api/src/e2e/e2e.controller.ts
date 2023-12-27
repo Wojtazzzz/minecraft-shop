@@ -16,6 +16,24 @@ export class E2eController {
 				password: await createHash('admin'),
 			},
 		});
+
+		await this.prisma.product.create({
+			data: {
+				id: 1,
+				name: 'Ranga VIP 30d',
+				price: 11.99,
+				active: true,
+			},
+		});
+
+		await this.prisma.product.create({
+			data: {
+				id: 2,
+				name: 'Ranga VIP 14d',
+				price: 8.99,
+				active: false,
+			},
+		});
 	}
 
 	@Get('/teardown')
