@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
 
 		if (!token) {
 			throw new UnauthorizedException({
-				error: messages['notAuthorized'],
+				error: 'Ta akcja wymaga autoryzacji',
 			});
 		}
 
@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
 			request['user'] = await this.usersService.findUserById(data.sub);
 		} catch {
 			throw new UnauthorizedException({
-				error: messages['notAuthorized'],
+				error: 'Ta akcja wymaga autoryzacji',
 			});
 		}
 
