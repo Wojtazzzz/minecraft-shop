@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/vue-query';
 import { wretch } from '../utils/wretch';
 import { getAccountQK } from '@/utils/queryKeys';
+import { meResponseSchema } from '@/utils/schemas/meResponseSchema';
 
 export function useMe() {
     const { data } = useQuery({
@@ -11,7 +12,13 @@ export function useMe() {
                 .unauthorized(() => {
                     return null;
                 })
-                .json();
+                .json((data) => {
+                    if (!meResponseSchema.isValidSync(data)) {
+                        return null;
+                    }
+
+                    return data;
+                });
         },
     });
 

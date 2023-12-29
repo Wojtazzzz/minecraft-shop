@@ -7,6 +7,7 @@ import NotFoundPage from './pages/404.vue';
 import { useQueryClient } from '@tanstack/vue-query';
 import { getAccountQK } from './utils/queryKeys';
 import { wretch } from './utils/wretch';
+import { meResponseSchema } from './utils/schemas/meResponseSchema';
 
 export const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,7 +51,13 @@ router.beforeEach(async () => {
                 .unauthorized(() => {
                     return null;
                 })
-                .json();
+                .json((data) => {
+                    if (!meResponseSchema.isValidSync(data)) {
+                        return null;
+                    }
+
+                    return data;
+                });
         },
     });
 });

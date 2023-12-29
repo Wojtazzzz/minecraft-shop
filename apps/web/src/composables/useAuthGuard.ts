@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/vue-query';
 import { wretch } from '../utils/wretch';
 import { getAccountQK } from '@/utils/queryKeys';
 import { useRouter } from 'vue-router';
+import { meResponseSchema } from '@/utils/schemas/meResponseSchema';
 
 export function useAuthGuard() {
     const router = useRouter();
@@ -16,7 +17,13 @@ export function useAuthGuard() {
 
                     throw new Error('Unauthorized');
                 })
-                .json();
+                .json((data) => {
+                    if (!meResponseSchema.isValidSync(data)) {
+                        return null;
+                    }
+
+                    return data;
+                });
         },
     });
 }
