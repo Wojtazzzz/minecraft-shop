@@ -1,5 +1,5 @@
 import { wretch } from '@/utils/wretch';
-import { useMutation } from '@tanstack/vue-query';
+import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { router } from '@/router';
 
 type LoginPayload = {
@@ -18,9 +18,13 @@ const mutationFn = async (payload: LoginPayload) => {
 };
 
 export const useLogin = () => {
+    const queryClient = useQueryClient();
+
     const { mutate, isError, isSuccess, isPending, error } = useMutation({
         mutationFn,
         onSuccess: async () => {
+            queryClient.invalidateQueries({ queryKey: ['user', 'auth', 'me'] });
+
             await router.push({ name: 'home' });
         },
     });

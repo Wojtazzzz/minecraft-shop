@@ -7,11 +7,8 @@ export const links = [
         name: 'Shop',
         href: '/shop',
     },
-];
-
-export const buttons = [
     {
-        name: 'Login',
-        href: '/login',
+        name: 'Profile',
+        href: '/profile',
     },
-];
+] as const;

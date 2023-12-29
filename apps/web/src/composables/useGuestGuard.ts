@@ -6,17 +6,25 @@ import { useRouter } from 'vue-router';
 export function useGuestGuard() {
     const router = useRouter();
 
-    useQuery({
+    const { isPending, isError, data } = useQuery({
         queryKey: getAccountQK(),
         queryFn: async function () {
-            return await wretch.get('/auth/me').json(() => {
-                router.push({
-                    name: 'home',
-                });
+            return await wretch
+                .get('/auth/me')
+                .json()
+                .then(() => {
+                    router.push({
+                        name: 'home',
+                    });
 
-                throw new Error('Already authorized');
-            });
+                    throw new Error('Already authorized');
+                });
         },
-        retry: 0,
     });
+
+    if (!isPending.value && !isError.value && data.value) {
+        router.push({
+            name: 'home',
+        });
+    }
 }

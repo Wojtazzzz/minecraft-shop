@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { useMobileNav } from '@/components/nav/useMobileNav';
-import { buttons, links } from '@/components/nav/navLinks';
+import { links } from '@/components/nav/navLinks';
 import Times from '@/components/icons/Times.vue';
 import Bars from '@/components/icons/Bars.vue';
 import { APP_NAME } from '@/utils/env';
+import { useMe } from '@/composables/useMe';
+import { useLogout } from './useLogout';
 
 const { isNavOpen, open, close } = useMobileNav();
+const { user } = useMe();
+const { logout } = useLogout();
 </script>
 
 <template>
@@ -35,12 +39,30 @@ const { isNavOpen, open, close } = useMobileNav();
 
                 <div>
                     <ul role="list" class="space-y-4 mt-5">
-                        <li v-for="({ name, href }, index) in [...links, ...buttons]" :key="index">
+                        <li v-for="({ name, href }, index) in [...links]" :key="index">
                             <RouterLink
                                 :to="href"
                                 class="font-medium tracking-wide text-gray-800"
                                 @click="close"
                                 >{{ name }}</RouterLink
+                            >
+                        </li>
+
+                        <li v-if="user">
+                            <RouterLink
+                                to="/"
+                                class="font-medium tracking-wide text-gray-800"
+                                @click="logout"
+                                >Logout</RouterLink
+                            >
+                        </li>
+
+                        <li v-else>
+                            <RouterLink
+                                to="/login"
+                                class="font-medium tracking-wide text-gray-800"
+                                @click="close"
+                                >Login</RouterLink
                             >
                         </li>
                     </ul>

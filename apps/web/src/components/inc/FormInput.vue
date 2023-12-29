@@ -6,7 +6,7 @@ const { name } = defineProps<{
     type: 'text' | 'password' | 'email';
     label: string;
     placeholder?: string;
-    modelValue: string;
+    modelValue?: string;
     required: boolean;
     invalid?: boolean;
     autocomplete: HTMLInputElement['autocomplete'];

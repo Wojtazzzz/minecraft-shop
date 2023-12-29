@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { links, buttons } from './navLinks';
+import { links } from './navLinks';
 import ButtonAsLink from '@/components/inc/ButtonAsLink.vue';
+import Button from '@/components/inc/Button.vue';
+import { useMe } from '../../composables/useMe';
+import { useLogout } from './useLogout';
+
+const { user } = useMe();
+const { logout } = useLogout();
 </script>
 
 <template>
@@ -11,8 +17,12 @@ import ButtonAsLink from '@/components/inc/ButtonAsLink.vue';
             </RouterLink>
         </li>
 
-        <li v-for="({ href, name }, index) in buttons" :key="index">
-            <ButtonAsLink :href="href">{{ name }}</ButtonAsLink>
+        <li v-if="user">
+            <Button type="button" @click="logout">Logout</Button>
+        </li>
+
+        <li v-else>
+            <ButtonAsLink href="/login">Login</ButtonAsLink>
         </li>
     </ul>
 </template>

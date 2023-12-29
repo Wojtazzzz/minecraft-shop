@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from '@/components/inc/Button.vue';
-import Input from '@/components/inc/FormInput.vue';
+import FormInput from '@/components/inc/FormInput.vue';
 import { useLogin } from '@/pages/loginPage/useLogin';
 import ApiErrorMessage from '@/components/inc/ApiErrorMessage.vue';
 import ApiSuccessMessage from '@/components/inc/ApiSuccessMessage.vue';
@@ -42,7 +42,7 @@ const handleSubmitForm = submit(mutate);
                         <span class="text-sm text-red-500 font-medium">* mandatory fields</span>
 
                         <div>
-                            <Input
+                            <FormInput
                                 type="text"
                                 name="login"
                                 label="Login"
@@ -55,7 +55,7 @@ const handleSubmitForm = submit(mutate);
                         </div>
 
                         <div>
-                            <Input
+                            <FormInput
                                 type="password"
                                 name="password"
                                 label="Password"
