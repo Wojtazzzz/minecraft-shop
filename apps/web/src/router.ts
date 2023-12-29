@@ -4,6 +4,10 @@ import LoginPage from '@/pages/loginPage/LoginPage.vue';
 import ProductsPage from './pages/productsPage/ProductsPage.vue';
 import ProductPage from './pages/productPage/ProductPage.vue';
 import NotFoundPage from './pages/404.vue';
+import { useQueryClient } from '@tanstack/vue-query';
+import { getAccountQK } from './utils/queryKeys';
+import { wretch } from './utils/wretch';
+import { meResponseSchema } from './utils/schemas/meResponseSchema';
 
 export const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,4 +38,26 @@ export const router = createRouter({
             component: NotFoundPage,
         },
     ],
+});
+
+router.beforeEach(async () => {
+    const queryClient = useQueryClient();
+
+    await queryClient.prefetchQuery({
+        queryKey: getAccountQK(),
+        queryFn: async function () {
+            return await wretch
+                .get('/auth/me')
+                .unauthorized(() => {
+                    return null;
+                })
+                .json((data) => {
+                    if (!meResponseSchema.isValidSync(data)) {
+                        return null;
+                    }
+
+                    return data;
+                });
+        },
+    });
 });

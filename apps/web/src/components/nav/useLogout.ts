@@ -2,25 +2,20 @@ import { wretch } from '@/utils/wretch';
 import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { router } from '@/router';
 
-type LoginPayload = {
-    login: string;
-    password: string;
-};
-
-const mutationFn = async (payload: LoginPayload) => {
+const mutationFn = async () => {
     return await wretch
-        .url('/auth/login')
-        .post(payload)
+        .url('/auth/logout')
+        .post()
         .unauthorized(() => {
-            throw new Error('Provided incorrect credentials');
+            throw new Error('Something went wrong, please try again later');
         })
         .res();
 };
 
-export const useLogin = () => {
+export const useLogout = () => {
     const queryClient = useQueryClient();
 
-    const { mutate, isError, isSuccess, isPending, error } = useMutation({
+    const { mutate } = useMutation({
         mutationFn,
         onSuccess: async () => {
             queryClient.invalidateQueries({ queryKey: ['user', 'auth', 'me'] });
@@ -29,11 +24,11 @@ export const useLogin = () => {
         },
     });
 
+    function logout() {
+        mutate();
+    }
+
     return {
-        isError,
-        isSuccess,
-        isPending,
-        error,
-        mutate,
+        logout,
     };
 };

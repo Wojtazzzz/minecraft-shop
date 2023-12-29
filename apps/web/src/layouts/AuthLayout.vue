@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import Nav from '../components/nav/Nav.vue';
+import { useGuestGuard } from '../composables/useGuestGuard';
+
+useGuestGuard();
 </script>
 
 <template>

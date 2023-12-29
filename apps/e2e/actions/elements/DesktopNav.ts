@@ -10,4 +10,21 @@ export class DesktopNav {
 			})
 			.click();
 	}
+
+	async goToShopPage() {
+		await this.page
+			.getByRole('link', {
+				name: 'shop',
+			})
+			.and(this.page.getByText('Shop'))
+			.click();
+	}
+
+	async clickOnLogoutButton() {
+		await this.page
+			.getByRole('button', {
+				name: 'logout',
+			})
+			.click();
+	}
 }
