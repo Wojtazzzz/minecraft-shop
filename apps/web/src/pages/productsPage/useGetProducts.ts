@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/vue-query';
 import { wretch } from '../../utils/wretch';
 import * as yup from 'yup';
-import { getProductsListQueryKey } from '@/utils/queryKeys';
+import { getProductsListQK } from '@/utils/queryKeys';
 
 const productsResponseSchema = yup
     .array(
@@ -18,7 +18,7 @@ const productsResponseSchema = yup
 
 export function useGetProducts() {
     const { isPending, isSuccess, isError, data, error } = useQuery({
-        queryKey: getProductsListQueryKey(),
+        queryKey: getProductsListQK(),
         queryFn: async function () {
             return await wretch
                 .get('/products')

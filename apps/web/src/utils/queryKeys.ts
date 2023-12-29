@@ -1,7 +1,11 @@
-export function getProductsListQueryKey() {
+export function getProductsListQK() {
     return ['products'];
 }
 
-export function getProductDetailsQueryKey(productId: number) {
+export function getProductDetailsQK(productId: number) {
     return ['product', productId];
+}
+
+export function getAccountQK() {
+    return ['auth', 'me'];
 }
