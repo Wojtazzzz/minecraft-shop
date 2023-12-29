@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import type { Request } from 'express';
 import { UsersService } from '../users/users.service';
 import { JWT_SECRET } from '../helpers/env';
+import { messages } from 'src/helpers/messages';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -18,7 +19,7 @@ export class AuthGuard implements CanActivate {
 
 		if (!token) {
 			throw new UnauthorizedException({
-				error: 'Please login to perform this action',
+				error: messages['notAuthorized'],
 			});
 		}
 
@@ -30,7 +31,7 @@ export class AuthGuard implements CanActivate {
 			request['user'] = await this.usersService.findUserById(data.sub);
 		} catch {
 			throw new UnauthorizedException({
-				error: 'Please login to perform this action',
+				error: messages['notAuthorized'],
 			});
 		}
 
