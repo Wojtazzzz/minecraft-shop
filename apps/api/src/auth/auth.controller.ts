@@ -15,7 +15,6 @@ import { Response } from 'express';
 import { AuthGuard } from './auth.guard';
 import { User } from '../user.decorator';
 import { UsersService } from '../users/users.service';
-import { messages } from 'src/helpers/messages';
 
 @Controller('auth')
 export class AuthController {
