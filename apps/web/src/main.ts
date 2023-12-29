@@ -14,12 +14,12 @@ app.use(VueQueryPlugin, {
     queryClientConfig: {
         defaultOptions: {
             queries: {
-                retry: 1,
+                retry: 0,
                 staleTime: 1000 * 6,
                 refetchInterval: 1000 * 30,
             },
             mutations: {
-                retry: 1,
+                retry: 0,
             },
         },
     },
