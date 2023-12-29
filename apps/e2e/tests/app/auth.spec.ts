@@ -19,7 +19,7 @@ test('try to login with incorrect credentials', async ({ page }) => {
 	await expect(invalidCredentialsError).toBeVisible();
 });
 
-test('successful login', async ({ page }) => {
+test('successful login and logout', async ({ page }) => {
 	const nav = new DesktopNav(page);
 	const loginPage = new LoginPage(page);
 
@@ -32,9 +32,20 @@ test('successful login', async ({ page }) => {
 	await loginPage.submitForm();
 
 	await expect(page).toHaveURL('/');
+
+	/* cannot access /login page as authorized */
+	await page.goto('/login');
+	await expect(page).toHaveURL('/');
+
+	/* logout process */
+	await nav.goToShopPage();
+	await expect(page).toHaveURL('/shop');
+
+	await nav.clickOnLogoutButton();
+	await expect(page).toHaveURL('/');
 });
 
-test('client side validation', async ({ page }) => {
+test('login form client side validation', async ({ page }) => {
 	const loginPage = new LoginPage(page);
 
 	await loginPage.go();
