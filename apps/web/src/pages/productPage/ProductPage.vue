@@ -57,7 +57,7 @@ const {
 
                     <div class="w-[300px]">
                         <Button type="button" @click="buyProduct" :isLoading="isBuyProductPending"
-                            >Buy</Button
+                            >Przejdź do płatności</Button
                         >
                     </div>
                 </article>

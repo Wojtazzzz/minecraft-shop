@@ -12,7 +12,7 @@ const mutationFn = async (payload: LoginPayload) => {
         .url('/auth/login')
         .post(payload)
         .unauthorized(() => {
-            throw new Error('Provided incorrect credentials');
+            throw new Error('Podano nieprawidłowe dane logowania');
         })
         .res();
 };

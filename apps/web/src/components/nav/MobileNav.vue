@@ -53,7 +53,7 @@ const { logout } = useLogout();
                                 to="/"
                                 class="font-medium tracking-wide text-gray-800"
                                 @click="logout"
-                                >Logout</RouterLink
+                                >Wyloguj</RouterLink
                             >
                         </li>
 
@@ -62,7 +62,7 @@ const { logout } = useLogout();
                                 to="/login"
                                 class="font-medium tracking-wide text-gray-800"
                                 @click="close"
-                                >Login</RouterLink
+                                >Zaloguj</RouterLink
                             >
                         </li>
                     </ul>

@@ -14,28 +14,30 @@ export class LoginPage {
 	}
 
 	async fillPasswordInput(text: string) {
-		const input = this.page.getByLabel('Password');
+		const input = this.page.getByLabel('Hasło');
 
 		await input.fill(text);
 	}
 
 	async submitForm() {
 		const button = this.page.getByRole('button', {
-			name: 'Login',
+			name: 'Zaloguj',
 		});
 
 		await button.click();
 	}
 
 	getInvalidCredentialsError() {
-		return this.page.getByRole('alert').filter({ hasText: 'Provided incorrect credentials' });
+		return this.page
+			.getByRole('alert')
+			.filter({ hasText: 'Podano nieprawidłowe dane logowania' });
 	}
 
 	getLoginIsRequiredError() {
-		return this.page.getByRole('alert').filter({ hasText: 'login is a required field' });
+		return this.page.getByRole('alert').filter({ hasText: 'login jest wymagany' });
 	}
 
 	getPasswordIsRequiredError() {
-		return this.page.getByRole('alert').filter({ hasText: 'password is a required field' });
+		return this.page.getByRole('alert').filter({ hasText: 'hasło jest wymagane' });
 	}
 }

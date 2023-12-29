@@ -33,7 +33,7 @@ export class AuthController {
 
 		if (!user) {
 			throw new UnauthorizedException({
-				error: 'Incorrect login data',
+				error: 'Niepoprawne dane logowania',
 			});
 		}
 

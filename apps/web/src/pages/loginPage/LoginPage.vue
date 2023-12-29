@@ -20,7 +20,7 @@ const handleSubmitForm = submit(mutate);
             <section class="max-w-md w-full rounded-md shadow-md border-[1px] border-gray-100 p-5">
                 <div class="w-full">
                     <div class="w-full border-b-[1px] border-gray-100 pb-3">
-                        <h2 class="text-xl font-medium text-gray-600">Login</h2>
+                        <h2 class="text-xl font-medium text-gray-600">Logowanie</h2>
                     </div>
 
                     <div role="alert" class="w-full mt-4">
@@ -39,7 +39,7 @@ const handleSubmitForm = submit(mutate);
                         @submit.prevent="handleSubmitForm"
                         class="flex flex-col gap-y-4 mt-5"
                     >
-                        <span class="text-sm text-red-500 font-medium">* mandatory fields</span>
+                        <span class="text-sm text-red-500 font-medium">* pola wymagane</span>
 
                         <div>
                             <FormInput
@@ -58,7 +58,7 @@ const handleSubmitForm = submit(mutate);
                             <FormInput
                                 type="password"
                                 name="password"
-                                label="Password"
+                                label="Hasło"
                                 v-bind="password"
                                 placeholder="********"
                                 autocomplete="current-password"
@@ -68,17 +68,17 @@ const handleSubmitForm = submit(mutate);
                         </div>
 
                         <div class="mt-4">
-                            <Button type="submit" :is-loading="isPending">LOGIN</Button>
+                            <Button type="submit" :is-loading="isPending">Zaloguj</Button>
                         </div>
                     </form>
                 </div>
 
                 <div class="mt-5 text-center text-gray-600">
-                    <span>Don't have an account? </span>
+                    <span>Nie posiadasz konta? </span>
                     <RouterLink
                         to="/"
                         class="underline hover:text-black transition-colors a-outline"
-                        >Register now</RouterLink
+                        >Zarejestruj</RouterLink
                     >
                 </div>
             </section>

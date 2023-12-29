@@ -15,7 +15,7 @@ export function useAuthGuard() {
                 .unauthorized(() => {
                     router.push({ name: 'login' });
 
-                    throw new Error('Unauthorized');
+                    throw new Error('Ta akcja wymaga autoryzacji');
                 })
                 .json((data) => {
                     if (!meResponseSchema.isValidSync(data)) {

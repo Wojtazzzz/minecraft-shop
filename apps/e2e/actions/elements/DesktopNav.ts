@@ -6,7 +6,7 @@ export class DesktopNav {
 	async goToLoginPage() {
 		await this.page
 			.getByRole('link', {
-				name: 'login',
+				name: 'zaloguj',
 			})
 			.click();
 	}
@@ -14,16 +14,16 @@ export class DesktopNav {
 	async goToShopPage() {
 		await this.page
 			.getByRole('link', {
-				name: 'shop',
+				name: 'sklep',
 			})
-			.and(this.page.getByText('Shop'))
+			.and(this.page.getByText('Sklep'))
 			.click();
 	}
 
 	async clickOnLogoutButton() {
 		await this.page
 			.getByRole('button', {
-				name: 'logout',
+				name: 'Wyloguj',
 			})
 			.click();
 	}

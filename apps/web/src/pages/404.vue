@@ -7,10 +7,12 @@ import Container from '@/components/inc/Container.vue';
     <MainLayout>
         <Container>
             <section class="flex flex-col items-center gap-3 min-h-[50vh]">
-                <h2 class="text-center text-3xl font-medium">Error 404, page not found :(</h2>
+                <h2 class="text-center text-3xl font-medium">
+                    Błąd 404, strona nie została znaleziona :(
+                </h2>
 
                 <RouterLink :to="{ name: 'home' }" class="text-lg underline"
-                    >Redirect to home page</RouterLink
+                    >Powrót na stronę główną</RouterLink
                 >
             </section>
         </Container>

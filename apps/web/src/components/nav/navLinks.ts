@@ -1,14 +1,14 @@
 export const links = [
     {
-        name: 'Home',
+        name: 'Główna',
         href: '/',
     },
     {
-        name: 'Shop',
+        name: 'Sklep',
         href: '/shop',
     },
     {
-        name: 'Profile',
+        name: 'Profil',
         href: '/profile',
     },
 ] as const;

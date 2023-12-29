@@ -18,11 +18,11 @@ const { logout } = useLogout();
         </li>
 
         <li v-if="user">
-            <Button type="button" @click="logout">Logout</Button>
+            <Button type="button" @click="logout">Wyloguj</Button>
         </li>
 
         <li v-else>
-            <ButtonAsLink href="/login">Login</ButtonAsLink>
+            <ButtonAsLink href="/login">Zaloguj</ButtonAsLink>
         </li>
     </ul>
 </template>

@@ -9,13 +9,13 @@ export class NotFoundPage {
 
 	getPageTitle() {
 		return this.page.getByRole('heading', {
-			name: 'Error 404, page not found :(',
+			name: 'Błąd 404, strona nie została znaleziona :(',
 		});
 	}
 
 	getRedirectToHomePageLink() {
 		return this.page.getByRole('link', {
-			name: 'Redirect to home page',
+			name: 'Powrót na stronę główną',
 		});
 	}
 }
