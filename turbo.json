@@ -14,10 +14,12 @@
 			"persistent": true
 		},
 		"test:app": {
-			"persistent": true
+			"persistent": true,
+			"cache": false
 		},
 		"test:api": {
-			"persistent": true
+			"persistent": true,
+			"cache": false
 		}
 	}
 }
