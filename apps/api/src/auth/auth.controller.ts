@@ -50,6 +50,16 @@ export class AuthController {
 		return;
 	}
 
+	@HttpCode(HttpStatus.OK)
+	@Post('logout')
+	async logout(@Res({ passthrough: true }) response: Response) {
+		response.cookie('access_token', null, {
+			expires: new Date(),
+		});
+
+		return;
+	}
+
 	@UseGuards(AuthGuard)
 	@Get('me')
 	getLoggedUser(@User('id') id: number) {
