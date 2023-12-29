@@ -17,7 +17,7 @@ export function useGuestGuard() {
                         name: 'home',
                     });
 
-                    throw new Error('Already authorized');
+                    throw new Error('Już jesteś zalogowany');
                 });
         },
     });

@@ -23,7 +23,7 @@ export function useBuyProduct() {
                         return json.checkoutUrl;
                     }
 
-                    throw Error('Response is invalid');
+                    throw Error('Coś poszło nie tak, proszę spróbować ponownie później');
                 });
         },
         onSuccess: async (checkoutUrl: string) => {

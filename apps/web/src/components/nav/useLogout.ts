@@ -7,7 +7,7 @@ const mutationFn = async () => {
         .url('/auth/logout')
         .post()
         .unauthorized(() => {
-            throw new Error('Something went wrong, please try again later');
+            throw new Error('Coś poszło nie tak, proszę spróbować ponownie później');
         })
         .res();
 };

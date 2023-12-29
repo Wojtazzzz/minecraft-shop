@@ -29,7 +29,7 @@ export function useGetProduct() {
                         return json;
                     }
 
-                    throw Error('Invalid data');
+                    throw Error('Coś poszło nie tak, proszę spróbować ponownie później');
                 });
         },
     });
