@@ -14,7 +14,7 @@ import { APP_NAME } from '@/utils/env';
                 <div class="mt-6 lg:max-w-sm">
                     <p class="text-sm text-gray-800">
                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                        doloremque laudantium, totam rem aperiam.
+                        doloremque laud antium, totam rem aperiam.
                     </p>
                 </div>
             </div>
