@@ -7,5 +7,5 @@ export function getProductDetailsQK(productId: number) {
 }
 
 export function getAccountQK() {
-    return ['auth', 'me'];
+    return ['user', 'auth', 'me'];
 }
