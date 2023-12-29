@@ -2,8 +2,8 @@ import * as yup from 'yup';
 import { useForm } from 'vee-validate';
 
 const schema = yup.object({
-    login: yup.string().required(),
-    password: yup.string().required(),
+    login: yup.string().required('Login jest wymagany'),
+    password: yup.string().required('Hasło jest wymagane'),
 });
 
 type LoginFormValues = yup.InferType<typeof schema>;

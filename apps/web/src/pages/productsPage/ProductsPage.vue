@@ -16,7 +16,7 @@ const { isSuccess, isError, isPending, products } = useGetProducts();
         <Container>
             <section class="flex flex-col gap-6">
                 <header class="w-full border-b pb-3">
-                    <h2 class="font-medium text-3xl">Products list</h2>
+                    <h2 class="font-medium text-3xl">Lista produktów</h2>
                 </header>
 
                 <div class="w-full flex justify-center" aria-live="polite" :aria-busy="isPending">
@@ -58,9 +58,9 @@ const { isSuccess, isError, isPending, products } = useGetProducts();
                                         />
                                     </div>
 
-                                    <div class="text-sm">Price: {{ (price / 100).toFixed(2) }}</div>
+                                    <div class="text-sm">Cena: {{ (price / 100).toFixed(2) }}</div>
 
-                                    <ButtonAsLink :href="`/product/${id}`">Buy</ButtonAsLink>
+                                    <ButtonAsLink :href="`/product/${id}`">Kup</ButtonAsLink>
                                 </article>
                             </RouterLink>
                         </li>
