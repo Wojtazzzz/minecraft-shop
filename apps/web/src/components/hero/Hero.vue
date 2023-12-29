@@ -5,7 +5,7 @@ import BlockRender from './render/Render.vue';
 <template>
     <div class="relative">
         <img
-            src="https://w.forfun.com/fetch/f3/f39722d3846c15949d46735e1cbbff7b.jpeg?w=1470&r=0.5625"
+            src="/public/hero-background.jpeg"
             class="absolute inset-0 object-cover w-full h-full blur-[3px]"
             alt=""
         />
