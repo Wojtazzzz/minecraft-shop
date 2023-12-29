@@ -20,7 +20,7 @@ export const useLogout = () => {
         onSuccess: async () => {
             queryClient.invalidateQueries({ queryKey: ['user', 'auth', 'me'] });
 
-            await router.push({ name: 'products' });
+            await router.push({ name: 'home' });
         },
     });
 
