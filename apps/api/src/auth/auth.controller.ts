@@ -62,7 +62,12 @@ export class AuthController {
 
 	@UseGuards(AuthGuard)
 	@Get('me')
-	getLoggedUser(@User('id') id: number) {
-		return this.usersService.findUserById(id);
+	async getLoggedUser(@User('id') id: number) {
+		const { login, email } = await this.usersService.findUserById(id);
+
+		return {
+			login,
+			email,
+		};
 	}
 }
