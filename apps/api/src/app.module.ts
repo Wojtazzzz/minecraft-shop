@@ -9,7 +9,7 @@ import { TestsModule } from './tests/tests.module';
 @Module({
 	imports: [
 		ConfigModule.forRoot({
-			envFilePath: ['../.env'],
+			envFilePath: ['../.env.local'],
 		}),
 		AuthModule,
 		UsersModule,

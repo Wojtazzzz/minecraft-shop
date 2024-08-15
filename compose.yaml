@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_minecraft_shop
+    restart: always
+    ports:
+      - 5436:5432
+    environment:
+      - POSTGRES_DB=minecraft_shop
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=postgres
