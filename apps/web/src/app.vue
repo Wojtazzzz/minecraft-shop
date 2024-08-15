@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    sasa
-  </div>
+  <NuxtRouteAnnouncer />
+
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
