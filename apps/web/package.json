@@ -10,9 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@mcshop/ui": "workspace:*",
+    "class-variance-authority": "^0.7.0",
     "nuxt": "^3.12.4",
-    "radix-vue": "^1.9.4",
+    "tailwindcss": "^3.3.5",
+    "tailwindcss-animate": "^1.0.7",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.1"
   }
 }
