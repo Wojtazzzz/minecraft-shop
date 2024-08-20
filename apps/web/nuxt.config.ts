@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: "./src",
   css: ["~/assets/css/styles.css"],
-
   components: [
     {
       path: "~/components",
@@ -12,5 +11,13 @@ export default defineNuxtConfig({
     },
   ],
 
-  modules: ["@nuxtjs/tailwindcss"],
+  nitro: {
+    esbuild: {
+      options: {
+        target: "es2022",
+      },
+    },
+  },
+
+  modules: ["@nuxtjs/tailwindcss", "@tresjs/nuxt"],
 });

@@ -11,8 +11,8 @@ const { user } = useAuth();
 </script>
 
 <template>
-  <div>
-    <header class="w-full fixed top-0 left-0 bg-white border-b-2 py-5">
+  <div class="relative">
+    <div class="w-full fixed top-0 left-0 z-30 bg-white border-b-2 py-5">
       <UiContainer>
         <div class="flex justify-between items-center">
           <UiInternalLink to="/">
@@ -35,8 +35,12 @@ const { user } = useAuth();
           </NavigationRoot>
         </div>
       </UiContainer>
-    </header>
+    </div>
 
-    <slot />
+    <div class="pt-6">
+      <Hero />
+
+      <slot />
+    </div>
   </div>
 </template>

@@ -6,7 +6,7 @@ export default {
   safelist: ["dark"],
   prefix: "",
 
-  content: ["./src/**/*.{ts,tsx,vue}", "../../packages/ui/**/*.{vue,ts}"],
+  content: ["./src/**/*.{ts,tsx,vue}", "../../packages/ui/src/**/*.{vue,ts}"],
 
   theme: {
     container: {
