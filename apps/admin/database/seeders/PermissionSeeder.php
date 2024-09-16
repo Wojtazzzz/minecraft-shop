@@ -26,10 +26,16 @@ class PermissionSeeder extends Seeder
             'admin panel',
 
             'view any product',
-            'view product',
+//            'view product',
             'create product',
             'update product',
             'delete product',
+
+            'view any role',
+//            'view role',
+            'create role',
+            'update role',
+            'delete role',
         ];
 
         foreach ($permissions as $permission) {

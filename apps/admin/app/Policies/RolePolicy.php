@@ -4,31 +4,32 @@ namespace App\Policies;
 
 use App\Models\User;
 
-class ProductPolicy
+class RolePolicy
 {
     public function viewAny(User $user): bool
     {
-        return $user->can('view any product');
+        return false;
+        return $user->can('view any role');
     }
 
     public function view(User $user): bool
     {
         return false;
-//        return $user->can('view product');
+//        return $user->can('view role');
     }
 
     public function create(User $user): bool
     {
-        return $user->can('create product');
+        return $user->can('create role');
     }
 
     public function update(User $user): bool
     {
-        return $user->can('update product');
+        return $user->can('update role');
     }
 
     public function delete(User $user): bool
     {
-        return $user->can('delete product');
+        return $user->can('delete role');
     }
 }
