@@ -40,6 +40,8 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
+            ->spa()
+            ->unsavedChangesAlerts()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
