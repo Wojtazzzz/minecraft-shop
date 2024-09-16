@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +16,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        if (app()->environment() === 'production') {
+            //
+        }else{
+            $user = User::factory()->create([
+                'name' => 'Wojtazzzz',
+                'email' => 'marcin.witas72@gmail.com',
+            ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+            $role = Role::create([
+                'name' => 'admin',
+            ]);
+
+            $permission = Permission::create([
+                'name' => 'admin panel',
+            ]);
+
+            $role->givePermissionTo($permission);
+
+            $user->assignRole($role);
+
+            Product::factory(5)->create();
+        }
     }
 }
