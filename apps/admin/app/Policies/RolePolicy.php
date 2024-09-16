@@ -8,7 +8,6 @@ class RolePolicy
 {
     public function viewAny(User $user): bool
     {
-        return false;
         return $user->can('view any role');
     }
 
