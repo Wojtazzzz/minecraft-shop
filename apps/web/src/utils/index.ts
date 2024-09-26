@@ -23,6 +23,5 @@ export const prettyTruncate = (text: string, maxLength: number) => {
     return text;
   }
 
-
-  return text.substring(0, maxLength) + '...';
-}
+  return text.substring(0, maxLength) + "...";
+};

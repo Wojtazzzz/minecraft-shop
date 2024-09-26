@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import {
-    CardTitle,
-} from '../lib/card'
+import { CardTitle } from '../lib/card'
 </script>
 
 <template>
-            <CardTitle>
-                <slot/>
-            </CardTitle>
+  <CardTitle>
+    <slot />
+  </CardTitle>
 </template>

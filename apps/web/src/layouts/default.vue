@@ -21,7 +21,7 @@ const { user } = useAuth();
 
           <NavigationRoot>
             <NavigationItemLink
-              v-for="({ label, name, path }) in routes"
+              v-for="{ label, name, path } in routes"
               :key="name"
               :link-instance="NuxtLink"
               :to="path"
@@ -42,9 +42,9 @@ const { user } = useAuth();
 
       <slot />
 
-        <div class="mt-24">
-            <Footer />
-        </div>
+      <div class="mt-24">
+        <Footer />
+      </div>
     </div>
   </div>
 </template>

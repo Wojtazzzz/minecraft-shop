@@ -12,4 +12,17 @@ import CardTitle from './components/card/card-title.vue'
 import CardFooter from './components/card/card-footer.vue'
 import Alert from './components/alert.vue'
 
-export { Button, NavigationRoot, NavigationItem, NavigationItemLink, ToggleTheme, Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter, Alert }
+export {
+  Button,
+  NavigationRoot,
+  NavigationItem,
+  NavigationItemLink,
+  ToggleTheme,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+  Alert
+}
