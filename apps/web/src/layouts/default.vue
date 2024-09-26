@@ -41,6 +41,8 @@ const { user } = useAuth();
       <Hero />
 
       <slot />
+
+        <Footer />
     </div>
   </div>
 </template>
