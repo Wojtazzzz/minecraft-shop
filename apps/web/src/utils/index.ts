@@ -5,8 +5,8 @@ export const routes = [
     label: "Główna",
   },
   {
-    name: "shop",
-    path: "/",
+    name: "products",
+    path: "/products",
     label: "Sklep",
   },
   {
@@ -17,3 +17,12 @@ export const routes = [
 ] as const;
 
 export type RoutePath = (typeof routes)[number]["path"];
+
+export const prettyTruncate = (text: string, maxLength: number) => {
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+
+  return text.substring(0, maxLength) + '...';
+}
