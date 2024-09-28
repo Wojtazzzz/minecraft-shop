@@ -38,8 +38,6 @@ const { user } = useAuth();
     </div>
 
     <div class="pt-12">
-      <Hero />
-
       <slot />
 
       <div class="mt-24">

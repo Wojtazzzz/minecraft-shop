@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { TresCanvas, type TresObject, useRenderLoop } from "@tresjs/core";
 import { shallowRef } from "vue";
-// import { useGLTF } from "@tresjs/cientos";
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
 
 const config = {
