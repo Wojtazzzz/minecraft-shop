@@ -23,9 +23,9 @@ const { data, status } = await useFetch("http://127.0.0.1:8000/api/products");
       </template>
       <template v-else>
         <ul
-          class="grid gap-7 pt-4 justify-items-center sm:grid-cols-2 sm:justify-items-center md:grid-cols-3 lg:grid-cols-4"
+          class="grid gap-10 pt-4 justify-items-center flex-wrap sm:grid-cols-2 sm:justify-items-center lg:grid-cols-3 xl:grid-cols-4"
         >
-          <li v-for="product in data.data" class="max-w-72">
+          <li v-for="product in data.data" class="w-72">
             <ProductCard :product="product" />
           </li>
         </ul>

@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@mcshop/ui/src";
+import { NuxtLink } from "#components";
 
 type Product = {
   id: string;
@@ -23,7 +24,7 @@ defineProps<{
 <template>
   <Card>
     <CardHeader>
-      <div class="text-center text-xl">
+      <div class="text-center text-xl min-h-10">
         <CardTitle>{{ prettyTruncate(product.name, 40) }}</CardTitle>
       </div>
     </CardHeader>
@@ -50,7 +51,7 @@ defineProps<{
 
     <CardFooter>
       <div class="w-full flex justify-center">
-        <Button variant="default" size="lg">Kupuję</Button>
+        <Button :as="NuxtLink" :to="`/products/${product.name}`" variant="default" size="lg">Kupuję</Button>
       </div>
     </CardFooter>
   </Card>
