@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {Alert, Button} from "@mcshop/ui/src";
-import {NuxtLink} from "#components";
 
 const route = useRoute()
 
@@ -45,7 +44,7 @@ const { data, status } = await useFetch(`http://127.0.0.1:8000/api/products/${ro
                 </div>
 
                 <div class="w-full flex justify-center mt-8">
-                    <Button :as="NuxtLink" :to="`/products/${data.data.slug}`" variant="default" size="lg">Kupuję</Button>
+                    <Button variant="default" size="lg">Kupuję</Button>
                 </div>
             </section>
         </template>
