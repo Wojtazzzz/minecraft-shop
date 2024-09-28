@@ -37,7 +37,7 @@ const { user } = useAuth();
       </UiContainer>
     </div>
 
-    <div class="pt-12">
+    <div class="pt-12 mt-16">
       <slot />
 
       <div class="mt-24">

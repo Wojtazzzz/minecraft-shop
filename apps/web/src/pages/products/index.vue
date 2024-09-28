@@ -6,7 +6,7 @@ const { data, status } = await useFetch("http://127.0.0.1:8000/api/products");
 
 <template>
   <UiContainer>
-    <section class="mt-16 space-y-6">
+    <section class="space-y-6">
       <h2
         class="scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0"
       >
