@@ -15,6 +15,6 @@ class ProductServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->loadRoutesFrom(base_path('modules/Product/Api/routes.php'));
+
     }
 }
