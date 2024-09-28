@@ -14,6 +14,7 @@ class ProductIndexResponseDto extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug,
             'image' => $this->image,
             'price' => $this->price,
         ];

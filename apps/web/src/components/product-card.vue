@@ -12,6 +12,7 @@ import { NuxtLink } from "#components";
 type Product = {
   id: string;
   name: string;
+  slug: string;
   image: string;
   price: number;
 };
@@ -51,7 +52,7 @@ defineProps<{
 
     <CardFooter>
       <div class="w-full flex justify-center">
-        <Button :as="NuxtLink" :to="`/products/${product.name}`" variant="default" size="lg">Kupuję</Button>
+        <Button :as="NuxtLink" :to="`/products/${product.slug}`" variant="default" size="lg">Kupuję</Button>
       </div>
     </CardFooter>
   </Card>

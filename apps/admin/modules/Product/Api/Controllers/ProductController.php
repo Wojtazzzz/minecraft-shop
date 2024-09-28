@@ -17,6 +17,7 @@ class ProductController extends Controller
             ->select([
                 'id',
                 'name',
+                'slug',
                 'image',
                 'price',
             ])
