@@ -30,7 +30,17 @@ class DatabaseSeeder extends Seeder
 
             $user->assignRole($role);
 
-            Product::factory(5)->create();
+            Product::factory(5)->create([
+                'image' => fn () => fake()->randomElement([
+                    config('app.url').'/images/block-1.png',
+                    config('app.url').'/images/block-2.webp',
+                    config('app.url').'/images/block-3.png',
+                    config('app.url').'/images/block-4.png',
+                    config('app.url').'/images/block-5.webp',
+                    config('app.url').'/images/block-6.jpg',
+                    config('app.url').'/images/block-7.webp',
+                ])
+            ]);
         }
     }
 }
