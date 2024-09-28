@@ -1,12 +1,7 @@
-<script setup lang="ts">
-import HeroBackground from "@/assets/hero-background.jpeg";
-import Render from "./Render.vue";
-</script>
-
 <template>
   <div class="relative">
     <img
-      :src="HeroBackground"
+      src="/hero-background.jpeg"
       class="absolute inset-0 object-cover w-full h-full blur-[3px]"
       alt=""
     />

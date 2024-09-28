@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import Container from "~/components/ui/Container.vue";
 import { Alert } from "@mcshop/ui/src";
 
 const { data, status } = await useFetch("http://127.0.0.1:8000/api/products");
 </script>
 
 <template>
-  <Container>
+  <UiContainer>
     <section class="mt-16 space-y-6">
       <h2
         class="scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0"
@@ -32,5 +31,5 @@ const { data, status } = await useFetch("http://127.0.0.1:8000/api/products");
         </ul>
       </template>
     </section>
-  </Container>
+  </UiContainer>
 </template>
