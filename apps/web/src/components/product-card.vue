@@ -31,12 +31,14 @@ defineProps<{
     <div class="my-3">
       <CardContent>
         <div class="w-full flex flex-col items-center space-y-6">
-          <img
-            :src="product.image"
-            :alt="product.name"
-            width="120"
-            height="120"
-          />
+            <div class="w-[120px] h-[120px]">
+                <img
+                    :src="product.image"
+                    :alt="product.name"
+                    width="120"
+                    height="120"
+                />
+            </div>
 
           <p>
             <span>Cena: &nbsp;</span>
